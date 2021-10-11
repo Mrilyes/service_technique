@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "189564940649",
+    "project_id": "service-technique-3d991",
+    "storage_bucket": "service-technique-3d991.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189564940649:android:361af164cf31ad9d87cdf8",
+        "android_client_info": {
+          "package_name": "com.example.service_technique"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189564940649-r397ucegrcdlv1kdqqbm652ufqn17cis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlofyH2gcFnNWH1WCY_qGwpvlGfVKH1hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189564940649-r397ucegrcdlv1kdqqbm652ufqn17cis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
