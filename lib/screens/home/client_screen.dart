@@ -1,9 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:service_technique/services/auth.dart';
 
 class Client extends StatelessWidget {
   final _formKey = GlobalKey<FormState>(); //to set up form validation
   final AuthService _auth = AuthService();
+  TextEditingController nom = TextEditingController();
+  TextEditingController prenom = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController tel = TextEditingController();
+  TextEditingController pc = TextEditingController();
+  TextEditingController desc = TextEditingController();
+  CollectionReference reports =
+      FirebaseFirestore.instance.collection("Reports");
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,6 +46,7 @@ class Client extends StatelessWidget {
                   if (value!.isEmpty) {
                     return 'Veuillez entrer votre nom';
                   }
+                  nom.text = value;
                   return null;
                 },
               ),
@@ -47,6 +58,7 @@ class Client extends StatelessWidget {
                   if (value!.isEmpty) {
                     return 'Veuillez entrer votre prenon';
                   }
+                  prenom.text = value;
                   return null;
                 },
               ),
@@ -58,6 +70,7 @@ class Client extends StatelessWidget {
                   if (value!.isEmpty) {
                     return 'Veuillez entrer votre E-mail';
                   }
+                  email.text = value;
                   return null;
                 },
               ),
@@ -69,6 +82,7 @@ class Client extends StatelessWidget {
                   if (value!.isEmpty) {
                     return 'Veuillez entrer votre Telephone';
                   }
+                  tel.text = value;
                   return null;
                 },
               ),
@@ -80,6 +94,7 @@ class Client extends StatelessWidget {
                   if (value!.isEmpty) {
                     return 'Veuillez entrer votre type de PC';
                   }
+                  pc.text = value;
                   return null;
                 },
               ),
@@ -91,6 +106,7 @@ class Client extends StatelessWidget {
                   if (value!.isEmpty) {
                     return 'Veuillez entrer ton problème';
                   }
+                  desc.text = value;
                   return null;
                 },
               ),
@@ -99,14 +115,22 @@ class Client extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.save),
-          onPressed: () {
+          onPressed: () async {
             // Validate returns true if the form is valid, or false otherwise
             if (_formKey.currentState!.validate()) {
+              await reports.add({
+                'Nom': nom.text,
+                'Prenom': prenom.text,
+                'Email': email.text,
+                'Tel': tel.text,
+                'PC': pc.text,
+                'Description': desc.text,
+              });
               print("Form was submitted successfully.");
               // If the form is valid, display a snackbar. In the real world,
               // you'd often call a server or save the information in a database.
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Données en cours')),
+                const SnackBar(content: Text('Ajoutée en succée')),
               );
             }
           },

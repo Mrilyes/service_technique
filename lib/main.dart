@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       initialData: null,
       catchError: (User, MyUser) => null,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),
     );
