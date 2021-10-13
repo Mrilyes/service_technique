@@ -114,7 +114,7 @@ class Client extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.save),
+          child: const Icon(Icons.save),
           onPressed: () async {
             // Validate returns true if the form is valid, or false otherwise
             if (_formKey.currentState!.validate()) {
