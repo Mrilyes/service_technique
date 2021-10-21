@@ -127,6 +127,7 @@ class Client extends StatelessWidget {
                 'Description': desc.text,
               });
               print("Form was submitted successfully.");
+              //Shows a snackbar with a message
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Ajoutée au succée')),
               );

@@ -23,12 +23,12 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text('connecter au service ',
+        title: const Text('connecter au service ',
             style: TextStyle(
               fontSize: 20,
               color: Colors.white,
             )),
-        actions: <Widget>[
+        actions: [
           FlatButton.icon(
             icon: Icon(Icons.person),
             label: Text('inscrire'),
@@ -41,10 +41,11 @@ class _SignInState extends State<SignIn> {
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
-          child: Column(
-            children: <Widget>[
+          child: ListView(
+            children: [
               SizedBox(height: 30.0),
               TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val!.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {

@@ -26,8 +26,8 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text('Inscrivez-vous'),
-        actions: <Widget>[
+        title: const Text('Inscrivez-vous'),
+        actions: [
           FlatButton.icon(
             icon: Icon(Icons.person),
             label: Text("s'identifier"),
@@ -40,10 +40,11 @@ class _RegisterState extends State<Register> {
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
-          child: Column(
-            children: <Widget>[
+          child: ListView(
+            children: [
               SizedBox(height: 30.0),
               TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val!.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
