@@ -118,6 +118,7 @@ class Client extends StatelessWidget {
           onPressed: () async {
             // Validate returns true if the form is valid, or false otherwise
             if (_formKey.currentState!.validate()) {
+              // Saving the report inthe database
               await reports.add({
                 'Nom': nom.text,
                 'Prenom': prenom.text,
