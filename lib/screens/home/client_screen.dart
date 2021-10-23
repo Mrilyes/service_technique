@@ -35,10 +35,10 @@ class Client extends StatelessWidget {
         ),
         body: Form(
           key: _formKey,
-          child: Column(
+          child: ListView(
             children: [
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: ' Nom',
                 ),
                 // validator: validateText,
@@ -51,7 +51,7 @@ class Client extends StatelessWidget {
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: ' Prenon',
                 ),
                 validator: (value) {
@@ -63,7 +63,7 @@ class Client extends StatelessWidget {
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: ' Adresse E-mail',
                 ),
                 validator: (value) {
@@ -75,7 +75,7 @@ class Client extends StatelessWidget {
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: ' Numero De Telephone',
                 ),
                 validator: (value) {
@@ -87,7 +87,7 @@ class Client extends StatelessWidget {
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: ' Type De Ton PC',
                 ),
                 validator: (value) {
@@ -99,8 +99,8 @@ class Client extends StatelessWidget {
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(
-                  labelText: ' description de votre problème',
+                decoration: const InputDecoration(
+                  labelText: 'description de votre problème',
                 ),
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -114,7 +114,7 @@ class Client extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.save),
+          child: const Icon(Icons.save),
           onPressed: () async {
             // Validate returns true if the form is valid, or false otherwise
             if (_formKey.currentState!.validate()) {
@@ -127,10 +127,9 @@ class Client extends StatelessWidget {
                 'Description': desc.text,
               });
               print("Form was submitted successfully.");
-              // If the form is valid, display a snackbar. In the real world,
-              // you'd often call a server or save the information in a database.
+              //Shows a snackbar with a message
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Données en cours')),
+                const SnackBar(content: Text('Ajoutée au succée')),
               );
             }
           },
