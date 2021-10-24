@@ -63,6 +63,7 @@ class Client extends StatelessWidget {
                 },
               ),
               TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   labelText: ' Adresse E-mail',
                 ),
@@ -75,6 +76,7 @@ class Client extends StatelessWidget {
                 },
               ),
               TextFormField(
+                keyboardType: TextInputType.phone,
                 decoration: const InputDecoration(
                   labelText: ' Numero De Telephone',
                 ),
