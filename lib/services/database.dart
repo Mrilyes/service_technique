@@ -8,18 +8,16 @@ class DatabaseService {
   final CollectionReference ClientCollection =
       FirebaseFirestore.instance.collection('declaration');
 
-  // Future<void> updateUserData(String name, String prenon, String mail,
-  //     String number, String type, String describ) async {
-  //   Map<String, String> data = {
-  //     'name': name,
-  //     'prenon': prenon,8
-  //     'mail': mail,
-  //     'number': number,
-  //     'type': type,
-  //     'describ': describ,
-  //   };
-  //   return await ClientCollection.doc(uid).set(data);
-  // }
+  Future getReports() async {
+    final CollectionReference ReportsRef =
+        FirebaseFirestore.instance.collection('Reports');
+
+    QuerySnapshot snapshot = await ReportsRef.get();
+
+    var data = snapshot.docs.toList();
+    return data;
+  }
+
   Future<void> updateUserData(String sugars, String name, int strength) async {
     return await ClientCollection.doc(uid).set({
       'sugars': sugars,
@@ -27,19 +25,6 @@ class DatabaseService {
       'strength': strength,
     });
   }
-
-  // brew list from snapshot
-  // List<declaration> _brewListFromSnapshot(QuerySnapshot snapshot) {
-  //   return snapshot.docs.map((doc) {
-  //     //print(doc.data);
-  //     return declaration(
-  //         name: doc.get('name')?? '',
-  //         strength: doc.get('strength') ?? 0,
-  //         sugars: doc.get('sugars')?? '0');
-  //   }).toList();
-  // }
-
-  // get declaration stream
 
   Stream<QuerySnapshot> get declaration {
     return ClientCollection.snapshots();
