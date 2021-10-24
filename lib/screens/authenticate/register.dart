@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:service_technique/services/auth.dart';
 import 'package:service_technique/shared/constants.dart';
-import 'package:service_technique/shared/loading.dart';
 
 class Register extends StatefulWidget {
   final Function toggleView;
@@ -64,6 +63,29 @@ class _RegisterState extends State<Register> {
                     onChanged: (val) {
                       setState(() => password = val);
                     },
+                  ),
+                  SizedBox(height: 50.0),
+                  RaisedButton(
+                      color: Colors.pink[400],
+                      child: Text(
+                        'enregistrer',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          dynamic result = await _auth
+                              .registerWithEmailAndPassword(email, password);
+                          if (result == null) {
+                            setState(() {
+                              error = 'Please supply a valid email';
+                            });
+                          }
+                        }
+                      }),
+                  SizedBox(height: 12.0),
+                  Text(
+                    error,
+                    style: TextStyle(color: Colors.red, fontSize: 14.0),
                   )
                 ],
               ),
