@@ -18,7 +18,7 @@ class Service extends StatelessWidget {
         title: Text('Espace Service'),
         backgroundColor: Colors.brown[400],
       ),
-      // body: ServiceList(),
+      body: ServiceList(),
     );
   }
 }

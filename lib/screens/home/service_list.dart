@@ -14,11 +14,7 @@ class ServiceList extends StatefulWidget {
 class _ServiceListState extends State<ServiceList> {
   @override
   Widget build(BuildContext context) {
-    final declaration = Provider.of<QuerySnapshot?>(context);
-
-    for (var doc in declaration!.docs) {
-      print(doc.data());
-    }
+    
     return Container();
   }
 }
