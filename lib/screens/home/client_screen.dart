@@ -23,7 +23,7 @@ class Client extends StatelessWidget {
           title: Text('Espace Client'),
           backgroundColor: Colors.brown[400],
           elevation: 0.0,
-          actions: <Widget>[
+          actions: [
             FlatButton.icon(
               icon: Icon(Icons.person),
               label: Text('déconnecter'),

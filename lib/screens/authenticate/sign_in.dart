@@ -50,6 +50,7 @@ class _SignInState extends State<SignIn> {
                   children: <Widget>[
                     SizedBox(height: 30.0),
                     TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       decoration:
                           textInputDecoration.copyWith(hintText: 'Email'),
                       validator: (val) =>
