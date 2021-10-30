@@ -34,7 +34,12 @@ class ServiceList extends StatelessWidget {
                   Icons.delete_forever,
                   color: Colors.red,
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  FirebaseFirestore.instance
+                      .collection("Reports")
+                      .doc(doc.id)
+                      .delete();
+                },
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
